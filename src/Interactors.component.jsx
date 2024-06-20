@@ -13,7 +13,7 @@ const Interactors=(props)=>{
         width: 'min(900px,95vw)',
     }
     const interactorStyle = isEditor ? editorStyles : previewStyles;
-    const svgImg = isExpanded ? '../assets/expand.svg' : '../assets/shrink.svg'
+    const svgImgClassName = isExpanded ? 'fa-solid fa-up-right-and-down-left-from-center' : "fa-solid fa-down-left-and-up-right-to-center"
     function imgIconChangeHandler(){    
         setIsExpanded(!isExpanded);
     }
@@ -21,8 +21,9 @@ const Interactors=(props)=>{
         <>
             <div className="container" style={interactorStyle}>
                 <div className="heading">
-                    <h3><img src="../assets/icon.svg" alt="" />{title}</h3>
-                    <img src={svgImg} alt="" onClick={imgIconChangeHandler} />
+                    <h3><i className="fa-solid fa-feather"></i>{title}</h3>
+                    <span onClick={imgIconChangeHandler}>
+                    <i className={svgImgClassName}></i></span>
                 </div>
                 {children}
             </div>
